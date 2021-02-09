@@ -1,10 +1,12 @@
-function randomDiceNumber() {
+function drawnDieResult() {
     var num = Math.ceil(Math.random() * 6);
     return num;
 }
 
-var dice1 = randomDiceNumber();
-var dice2 = randomDiceNumber();
+var dice1 = drawnDieResult();
+var dice2 = drawnDieResult();
+
+/* set corresponding images for dice's results */
 
 var dices = ["images/dice1.png", "images/dice2.png", "images/dice3.png", "images/dice4.png", 
 "images/dice5.png", "images/dice6.png"]
@@ -24,13 +26,13 @@ else if (dice1 < dice2) {
     winnerPlayer = 2;
 }
 
-if(winnerPlayer == 0) {
+if(winnerPlayer == 0) { //it's a tie
     document.querySelector(".header").innerHTML = "Draw again";
     var subtitle = document.createElement("h4");
     subtitle.appendChild(document.createTextNode("Refresh the page"));
     document.querySelector("div.container").insertBefore(subtitle, document.querySelector("div.dice"));
 }
-else {
+else { //someone won
     if (winnerPlayer == 1){
         document.querySelector(".header").innerHTML = "🚩 Player " + winnerPlayer + " won!";
     }
